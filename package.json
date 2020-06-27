@@ -1,0 +1,37 @@
+{
+  "name": "graphicshookreact",
+  "version": ">= 1.0.0",
+  "description": "A React hook that gathers graphics card information",
+  "main": "dist/index.min.js",
+  "module": "dist/index.min.mjs",
+  "types": "dist/index.d.ts",
+  "author": "@mattsmyname, BRA1L0R",
+  "keywords": [
+    "react",
+    "gpu",
+    "graphics",
+    "webgl"
+  ],
+  "readme": "README.md",
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/react-hooks": "^3.3.0",
+    "@types/jest": "^26.0.3",
+    "@types/react": "^16.9.41",
+    "bili": "^5.0.5",
+    "jest": "^26.1.0",
+    "jest-webgl-canvas-mock": "^0.2.3",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {},
+  "scripts": {
+    "build": "bili",
+    "test": "jest",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
+}

@@ -1,9 +1,9 @@
 {
   "name": "use-videocard",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "A React hook that gathers graphics card information",
   "engines": {
-    "node": "^12.4.0"
+    "node": ">=12.4.0"
   },
   "main": "dist/index.min.js",
   "module": "dist/index.min.mjs",

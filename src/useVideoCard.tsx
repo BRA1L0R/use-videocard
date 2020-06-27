@@ -9,20 +9,17 @@ interface GraphicsInformation {
     }
 }
 
-function useVideoCard(canvas: HTMLCanvasElement) {
+function useVideoCard(gl: WebGLRenderingContext) {
     const [ graphicsCard, setGraphicsCard ] = useState({ });
 
     useEffect(() => {
-        getInfo(canvas).then((info: GraphicsInformation) => setGraphicsCard(info))
+        getInfo(gl).then((info: GraphicsInformation) => setGraphicsCard(info))
     })
     
     return graphicsCard;
 }
 
-async function getInfo(canvas: HTMLCanvasElement): Promise<GraphicsInformation> {
-    const gl = canvas.getContext("webgl") ?? canvas.getContext("webgl2");
-    if (!gl) throw "Unable to get WebGl context out of the canvas"
-
+async function getInfo(gl: WebGLRenderingContext): Promise<GraphicsInformation> {
     const renderInfo = gl.getExtension("WEBGL_debug_renderer_info");
     
     return {

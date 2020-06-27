@@ -1,11 +1,17 @@
 {
-  "name": "graphicshookreact",
-  "version": ">= 1.0.0",
+  "name": "use-videocard",
+  "version": "0.1.0",
   "description": "A React hook that gathers graphics card information",
+  "engines": {
+    "node": "12.4.0+"
+  },
   "main": "dist/index.min.js",
   "module": "dist/index.min.mjs",
   "types": "dist/index.d.ts",
   "author": "@mattsmyname, BRA1L0R",
+  "repository": "https://github.com/BRA1L0R/use-videocard",
+  "publisher": "BRA1L0R",
+  "sco": "",
   "keywords": [
     "react",
     "gpu",

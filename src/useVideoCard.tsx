@@ -9,18 +9,18 @@ interface GraphicsInformation {
     }
 }
 
-function useVideoCard(canvas: HTMLCanvasElement) {
-    const [ graphicsCard, setGraphicsCard ] = useState({ });
+// function useVideoCard(canvas: HTMLCanvasElement) {
+//     const [ graphicsCard, setGraphicsCard ] = useState({ });
 
-    useEffect(() => {
-        const gl = canvas.getContext("webgl") ?? canvas.getContext("webgl2")
-        if (gl) getInfo(gl).then((info: GraphicsInformation) => setGraphicsCard(info))
-    })
+//     useEffect(() => {
+//         const gl = canvas.getContext("webgl") ?? canvas.getContext("webgl2")
+//         if (gl) getInfo(gl).then((info: GraphicsInformation) => setGraphicsCard(info))
+//     })
     
-    return graphicsCard;
-}
+//     return graphicsCard;
+// }
 
-async function getInfo(gl: WebGLRenderingContext): Promise<GraphicsInformation> {
+function getGraphicsInformation(gl: WebGLRenderingContext | WebGL2RenderingContext): GraphicsInformation {
     const renderInfo = gl.getExtension("WEBGL_debug_renderer_info");
     
     return {
@@ -31,6 +31,27 @@ async function getInfo(gl: WebGLRenderingContext): Promise<GraphicsInformation> 
             renderer: renderInfo != null ? gl.getParameter(renderInfo.UNMASKED_RENDERER_WEBGL) : ""
         }
     }
+}
+
+function useVideoCard (initialGl?: WebGLRenderingContext) {
+    const [ gl, setGl ] = useState<WebGLRenderingContextOverloads | undefined>(initialGl)
+    const [ info, setInfo ] = useState<GraphicsInformation>()
+
+    useEffect(() => {
+        if (!initialGl) {
+            const canvas = document.createElement("canvas")
+            const context = canvas.getContext("webgl") ?? canvas.getContext("webgl2")
+
+            if (context)
+            setInfo(getGraphicsInformation(context))
+
+            canvas.remove();
+        } else {
+            setInfo(getGraphicsInformation(initialGl))
+        }
+    }, [])
+
+    return info
 }
 
 export { useVideoCard };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createElement } from 'react'
+import React, { useState, useEffect } from 'react'
 
 interface GraphicsInformation {
     renderer: string,
@@ -9,11 +9,12 @@ interface GraphicsInformation {
     }
 }
 
-function useVideoCard(gl: WebGLRenderingContext) {
+function useVideoCard(canvas: HTMLCanvasElement) {
     const [ graphicsCard, setGraphicsCard ] = useState({ });
 
     useEffect(() => {
-        getInfo(gl).then((info: GraphicsInformation) => setGraphicsCard(info))
+        const gl = canvas.getContext("webgl") ?? canvas.getContext("webgl2")
+        if (gl) getInfo(gl).then((info: GraphicsInformation) => setGraphicsCard(info))
     })
     
     return graphicsCard;

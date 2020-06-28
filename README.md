@@ -3,9 +3,7 @@
 # `use-videocard`
 
 ## Introduction
-This package is a react hook for getting the grahics card information from WebGL by creating a temporary canvas that later gets deleted
-
-NOTE: The canvas never gets appended to DOM, so no worries
+This package is a react hook for getting the grahics card information from WebGL.
 
 ## Installation
 This package can be found in the NPM registry, install it using this command:

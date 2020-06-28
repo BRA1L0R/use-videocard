@@ -1,7 +1,6 @@
 ![](assets/logo.svg)
 
 # `use-videocard`
-#### React hook made for gathering graphics card information from a webglcanvas
 
 ## Introduction
 This package is a react hook for getting the grahics card information from WebGL by creating a temporary canvas that later gets deleted
@@ -9,19 +8,17 @@ This package is a react hook for getting the grahics card information from WebGL
 NOTE: The canvas never gets appended to DOM, so no worries
 
 ## Installation
----
 This package can be found in the NPM registry, install it using this command:
-### With npm:
+#### With _npm_:
 
 `npm install use-videocard`
 
-### With yarn:
+#### With _yarn_:
 
 `yarn add use-videocard`
 
 ## Example
----
-```js
+```tsx
 function App() {
   const graphics = useVideoCard()
 

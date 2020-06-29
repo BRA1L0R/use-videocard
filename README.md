@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     console.log(graphics?.unmasked.vendor + " " + graphics?.unmasked.renderer)
-  })
+  }, [])
 
   return (
     <div className="App">

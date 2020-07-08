@@ -19,6 +19,7 @@ yarn add use-videocard
 ```
 
 ## Example
+[![Edit sweet-night-sgsyw](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sweet-night-sgsyw?fontsize=14&hidenavigation=1&theme=dark)
 ```tsx
 import React from 'react'
 import useVideoCard from 'use-videocard'

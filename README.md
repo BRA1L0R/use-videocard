@@ -28,8 +28,8 @@ function App() {
 
   return (
     <div className="App">
-      <p>Vendor: graphics?.unmasked.vendor</p>
-      <p>GPU: graphics?.unmasked.renderer</p>
+      <p>Vendor: { graphics?.unmasked.vendor }</p>
+      <p>GPU: { graphics?.unmasked.renderer }</p>
     </div>
   );
 }

@@ -1,6 +1,10 @@
 ![](assets/logo.svg)
 
 # `use-videocard`
+![https://www.npmjs.com/package/use-videocard](https://img.shields.io/npm/v/use-videocard?style=for-the-badge)
+![](https://img.shields.io/github/languages/code-size/BRA1L0R/use-videocard?style=for-the-badge)
+![https://github.com/BRA1L0R/use-videocard/blob/master/LICENSE.md](https://img.shields.io/github/license/BRA1L0R/use-videocard?style=for-the-badge)
+![https://www.npmjs.com/package/use-videocard](https://img.shields.io/npm/dy/use-videocard?style=for-the-badge)
 
 ## Installation
 This package can be found in the NPM registry, install it using this command:
@@ -16,21 +20,20 @@ yarn add use-videocard
 
 ## Example
 ```tsx
+import React from 'react'
+import useVideoCard from 'use-videocard'
+
 function App() {
   const graphics = useVideoCard()
 
-  useEffect(() => {
-    console.log(graphics?.unmasked.vendor + " " + graphics?.unmasked.renderer)
-  }, [])
-
   return (
     <div className="App">
+      <p>Vendor: graphics?.unmasked.vendor</p>
+      <p>GPU: graphics?.unmasked.renderer</p>
     </div>
   );
 }
 ```
-
-Example output: `NVIDIA Corporation Geforce GTX 1070/PCIe/SSE2`
 
 ## API
 ### `useVideoCard (gl?: WebGLRenderingContext): GraphicsInformation`

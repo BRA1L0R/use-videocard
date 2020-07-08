@@ -8,12 +8,14 @@ This package is a react hook for getting the grahics card information from WebGL
 ## Installation
 This package can be found in the NPM registry, install it using this command:
 #### With _npm_:
-
-`npm install use-videocard`
+```
+npm install use-videocard
+```
 
 #### With _yarn_:
-
-`yarn add use-videocard`
+```
+yarn add use-videocard
+```
 
 ## Example
 ```tsx
@@ -32,6 +34,28 @@ function App() {
 ```
 
 Example output: `NVIDIA Corporation Geforce GTX 1070/PCIe/SSE2`
+
+## API
+### `useVideoCard (gl?: WebGLRenderingContext): GraphicsInformation`
+- `gl`: The WebGLRenderingContext which we want to extract the information from. _NOTE: this field is *OPTIONAL*, the hook creates a canvas without appending it to the dom, but if you really want to specify the `WebGLRenderingContext then set this field_
+
+### `GraphicsInformation`
+```ts
+interface GraphicsInformation {
+    renderer: string,
+    vendor: string,
+    unmasked: {
+        vendor: string,
+        renderer: string
+    }
+}
+```
+
+- renderer: The masked renderer ID
+- vendor: The masked vendor ID
+- unmasked:
+  - vendor: The unmasked vendor name. _es: `NVIDIA Corporation`_
+  - renderer: The unmasked renderer name (the graphics card model and the pci version). _es: `Geforce GTX 1070/PCIe/SSE2`_
 
 ## Contributors
 <a href="https://github.com/BRA1L0R"><img style="height:auto;" alt="" src="https://avatars2.githubusercontent.com/u/17928339?s=460&u=f7f92a4673f1286094c282b3ee7b46076527ac72&v=4" width="80" height="80"><a/>
